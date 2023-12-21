@@ -2,7 +2,6 @@
 
 from odoo import models, fields, api, exceptions
 
-
 class entradas(models.Model):
     _name = 'grupo3c.entradas'
 
@@ -14,13 +13,13 @@ class entradas(models.Model):
 
     @api.constrains('fecha_entrada')
     def _validate_date(self):
-        for place in self:
+        for entradas in self:
             if fields.Date.from_string(entradas.fecha_entrada) < fields.Date.from_string(fields.Date.today()):
                 raise exceptions.ValidationError("La fecha no puede ser inferior a la actual")
 
     @api.constrains('precio')
     def _validate_date(self):
-        for place in self:
+        for entradas in self:
             if entradas.precio.isalpha():
                 raise exceptions.ValidationError("No puedes introducir letras en el precio")
 
