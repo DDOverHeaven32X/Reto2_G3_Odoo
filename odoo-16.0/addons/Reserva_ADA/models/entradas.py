@@ -8,7 +8,9 @@ class entradas(models.Model):
     precio = fields.Monetary(required = True, string="Precio")
     fecha_entrada = fields.Date(required = True, string ="Fecha")
 
+
     client_id = fields.Many2one('res.users', string="Cliente")
+    admin_id = fields.Many2one('res.users', string="Admin")
     zona_id = fields.ManyMany("grupo3c.zona", "zonaId", string="codigo_zona")
 
     @api.constrains('fecha_entrada')
@@ -18,7 +20,7 @@ class entradas(models.Model):
                 raise exceptions.ValidationError("La fecha no puede ser inferior a la actual")
 
     @api.constrains('precio')
-    def _validate_date(self):
+    def _validate_price(self):
         for entradas in self:
             if entradas.precio.isalpha():
                 raise exceptions.ValidationError("No puedes introducir letras en el precio")
