@@ -8,7 +8,7 @@ class entradas(models.Model):
    #Precio de la entrada
    precio = fields.Float(required= True, string="Precio");
    fecha_entrada = fields.Date(required=True, string="Fecha")
-
+   tipo_entrada = fields.Selection([('Reducida', 'Normal', 'Infantil', 'Senior')], string = "Tipo de entrada", required = True)
 
    client_id = fields.Many2one('res.users', string="Cliente")
    admin_id = fields.Many2one('res.users', string="Admin")
