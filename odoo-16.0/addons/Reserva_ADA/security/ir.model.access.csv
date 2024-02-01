@@ -1,0 +1,9 @@
+<!-- Aqui va la seguridad del modelo  -->
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_zonas_admin,Acesso a las zonas prof,model_grupo3c_zonas,inventario_group_admin,1,1,1,1
+access_animales_admin,Acesso a los animales prof,model_grupo3c_animales,inventario_group_admin,1,1,1,1
+access_entradas_admin,Acesso a las entradas prof,model_grupo3c_entradas,inventario_group_admin,1,1,1,1
+access_zonas_client,Acesso a las zonas prof client,model_grupo3c_zonas,reserva_group_cliente,1,,,
+access_animales_client,Acesso a las animales prof client,model_grupo3c_animales,reserva_group_cliente,1,,,
+access_entradas_client,Acesso a las entradas prof client,model_grupo3c_entradas,reserva_group_cliente,1,,,
+

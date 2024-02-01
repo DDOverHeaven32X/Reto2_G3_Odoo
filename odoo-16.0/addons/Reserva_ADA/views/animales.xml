@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <!-- vista search -->
-        <record model="ir.ui.view" id="grupo3c.animal_form">
+        <record model="ir.ui.view" id="grupo3c_animales_search_view">
             <field name="name">reserva ADA animales search</field>
             <field name="model">grupo3c.animales</field>
             <field name="arch" type="xml">
@@ -12,8 +12,9 @@
             </field>
         </record>
 
+
         <!-- vista Arbol -->
-        <record model="ir.ui.view" id="grupo3c.animal_list">
+        <record model="ir.ui.view" id="grupo3c_animales_list_view">
             <field name="name">reserva ADA animales tree</field>
             <field name="model">grupo3c.animales</field>
             <field name="arch" type="xml">
@@ -30,14 +31,15 @@
             </field>
         </record>
 
+
         <!-- vista Formulario -->
-        <record model="ir.ui.view" id="grupo3c.animal_form">
+        <record model="ir.ui.view" id="grupo3c_animales_form_view">
             <field name="name">reserva ADA animales form</field>
             <field name="model">grupo3c.animales</field>
             <field name="arch" type="xml">
                 <form string="animales form">
-                    <group colspan="4">
-                        <group col="8">
+                    <group>
+                        <group col="2">
                             <separator string="GENERAL ANIMAL DATA" colspan="2"/>
                             <field name="nombre"/>
                             <field name="genero"/>
@@ -53,36 +55,78 @@
             </field>
         </record>
 
+
         <!--  vista Kanban  -->
-        <record id="animales-kanban-view" model="ir.ui.view">
-            <field name="name">reserva ADA animales kanba</field>
+        <record id="grupo3c_animales_kanban_view" model="ir.ui.view">
+            <field name="name">reserva ADA animales kanban</field>
             <field name="model">grupo3c.animales</field>
             <field name="arch" type="xml">
                 <kanban>
-                    <field name="nombre"/>
-                    <field name="genero"/>
-                    <field name="edad"/>
-                    <field name="peso"/>
-                    <field name="altura"/>
-                    <field name="especie"/>
-                    <field name="alimentacion"/>
-                    <field name="salud"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_subtitle">
+                                        <div class="o_kanban_attribute">
+                                            Nombre:
+                                            <field name="nombre"/>
+                                        </div>
+                                        <div class="o_kanban_attribute">
+                                            Género:
+                                            <field name="genero"/>
+                                        </div>
+                                        <div class="o_kanban_attribute">
+                                            Edad:
+                                            <field name="edad"/>
+                                        </div>
+                                        <div class="o_kanban_attribute">
+                                            Peso:
+                                            <field name="peso"/>
+                                        </div>
+                                        <div class="o_kanban_attribute">
+                                            Altura:
+                                            <field name="altura"/>
+                                        </div>
+                                        <div class="o_kanban_attribute">
+                                            Especie:
+                                            <field name="especie"/>
+                                        </div>
+                                        <div class="o_kanban_attribute">
+                                            Alimentación:
+                                            <field name="alimentacion"/>
+                                        </div>
+                                        <div class="o_kanban_attribute">
+                                            Salud:
+                                            <field name="salud"/>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
                 </kanban>
             </field>
         </record>
 
 
         <!-- menu item -->
-        <record model="ir.actions.act_window" id="grupo3c.action_window2">
-            <field name="name">RESERVA ADA ANIMAL</field>
+        <record id="Reserva_ADA.action_window2" model="ir.actions.act_window">
+            <field name="name">RESERVA ADA ANIMALES</field>
             <field name="res_model">grupo3c.animales</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,search,kanban</field>
         </record>
 
-        <menuitem name="Animalmanagment"
-                  id="grupo3c.menu_2_list"
-                  parent="grupo3c.menu_1"
-                  action="grupo3c.action_window2"/>
+
+        <!-- Menús -->
+        <menuitem name="RESERVA_G3" id="Reserva_ADA.menu_root"/>
+        <menuitem name="Animales Management"
+                  id="Reserva_ADA.menu_2_list"
+                  parent="Reserva_ADA.menu_root"
+                  action="Reserva_ADA.action_window2"/>
+
 
     </data>
 </odoo>
+

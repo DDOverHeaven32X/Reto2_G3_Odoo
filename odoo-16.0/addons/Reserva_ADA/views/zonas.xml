@@ -1,0 +1,98 @@
+<odoo>
+    <data>
+        <!-- Definición de vistas -->
+        <record id="grupo3c_zonas_tree_view" model="ir.ui.view">
+            <field name="name">grupo3c.zonas.tree.view</field>
+            <field name="model">grupo3c.zonas</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="tipo_animal"/>
+                    <field name="descripcion"/>
+                    <field name="id_admin"/>
+                    <field name="id_entrada"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="grupo3c_zonas_form_view" model="ir.ui.view">
+            <field name="name">grupo3c.zonas.form.view</field>
+            <field name="model">grupo3c.zonas</field>
+            <field name="arch" type="xml">
+                <form string="Zonas Form">
+                    <group>
+                        <group col="2">
+                            <field name="name"/>
+                            <field name="tipo_animal"/>
+                            <field name="descripcion"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="grupo3c_zonas_search_view" model="ir.ui.view">
+            <field name="name">grupo3c.zonas.search.view</field>
+            <field name="model">grupo3c.zonas</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="tipo_animal"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="grupo3c_zonas_kanban_view" model="ir.ui.view">
+            <field name="name">grupo3c.zonas.kanban.view</field>
+            <field name="model">grupo3c.zonas</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_subtitle">
+                                        <div class="o_kanban_attribute">
+                                            Nombre:
+                                            <field name="name"/>
+                                        </div>
+                                        <div class="o_kanban_attribute">
+                                            Tipo de Animal:
+                                            <field name="tipo_animal"/>
+                                        </div>
+                                        <div class="o_kanban_attribute">
+                                            Descripción:
+                                            <field name="descripcion"/>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- Acción de ventana -->
+        <record id="Reserva_ADA.action_window1" model="ir.actions.act_window">
+            <field name="name">RESERVA ADA ZONAS</field>
+            <field name="res_model">grupo3c.zonas</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+        </record>
+
+
+        <!-- Menús -->
+        <menuitem name="RESERVA_G3" id="Reserva_ADA.menu_root"/>
+        <menuitem name="Zonas Management"
+                  id="Reserva_ADA.menu_1_list"
+                  parent="Reserva_ADA.menu_root"
+                  action="Reserva_ADA.action_window1"/>
+    </data>
+</odoo>
+

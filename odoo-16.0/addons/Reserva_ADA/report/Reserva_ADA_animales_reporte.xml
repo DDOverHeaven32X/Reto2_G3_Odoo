@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="Reserva_ADA_animales_reporte" model="ir.actions.report">
+        <field name="name">Informe de Animales</field>
+        <field name="model">grupo3c.animales</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">Reserva_ADA.reserva_ada_animales_template</field>
+        <field name="report_file">Reserva_ADA.report_animales</field>
+        <field name="binding_model_id" ref="model_grupo3c_animales"/>
+    </record>
+    <template id="reserva_ada_animales_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page"
+                         style="margin: 20px auto; width: 80%; text-align: center; font-family: Arial, sans-serif; color: #333;">
+
+
+                        <!-- Agregar un encabezado -->
+                        <div style="margin-bottom: 20px;">
+                            <h2 style="font-size: 24px;">Informe sobre Animal</h2>
+                        </div>
+
+
+                        <div style="width: 100%; text-align: center;">
+                            <!-- Estilos adicionales sin tocar la tabla -->
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Nombre del animal:</b>
+                                <span t-field="o.nombre"></span>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Genero:</b>
+                                <span t-field="o.genero"></span>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Edad:</b>
+                                <span t-field="o.edad"></span>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Peso:</b>
+                                <span t-field="o.peso"></span>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Altura:</b>
+                                <span t-field="o.altura"></span>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Especie:</b>
+                                <span t-field="o.especie"></span>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Salud:</b>
+                                <span t-field="o.salud"></span>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Alimentacion:</b>
+                                <span t-field="o.alimentacion"></span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

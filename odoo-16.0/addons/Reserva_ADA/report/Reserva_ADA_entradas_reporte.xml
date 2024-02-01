@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="Reserva_ADA_entradas_reporte" model="ir.actions.report">
+        <field name="name">Informe de entradas</field>
+        <field name="model">grupo3c.entradas</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">Reserva_ADA.reserva_ada_entradas_template</field>
+        <field name="report_file">Reserva_ADA.report_entradas</field>
+        <field name="binding_model_id" ref="model_grupo3c_entradas"/>
+    </record>
+    <template id="reserva_ada_entradas_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page"
+                         style="margin: 20px auto; width: 80%; text-align: center; font-family: Arial, sans-serif; color: #333;">
+
+
+                        <!-- Agregar un encabezado -->
+                        <div style="margin-bottom: 20px;">
+                            <h2 style="font-size: 24px;">Informe sobre Entrada</h2>
+                        </div>
+
+
+                        <div style="width: 100%; text-align: center;">
+                            <!-- Estilos adicionales sin tocar la tabla -->
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Precio de entrada:</b>
+                                <span t-field="o.precio"></span>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Tipo de entrada:</b>
+                                <span t-field="o.tipo_entrada"></span>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 10px;">
+                                <b>Fecha de entrada:</b>
+                                <span t-field="o.fecha_entrada"></span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

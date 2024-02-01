@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="categoria_modulo_reserva" model="ir.module.category">
+        <field name="name">Acceso a la reserva</field>
+    </record>
+    <record id="inventario_group_admin" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="categoria_modulo_reserva"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="reserva_group_cliente" model="res.groups">
+        <field name="name">Cliente</field>
+        <field name="category_id" ref="categoria_modulo_reserva"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>
